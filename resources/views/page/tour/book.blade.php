@@ -1,11 +1,32 @@
 @extends('page.layouts.page')
 @section('title', 'Đặt tour')
 @section('style')
+<style>
+    .payment-method {
+        border: 2px solid #e9ecef;
+        transition: all 0.3s;
+    }
+    .payment-method:hover {
+        border-color: #007bff;
+        background: #f0f8ff !important;
+    }
+    .form-check-input:checked {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+    .form-check-label {
+        cursor: pointer;
+        margin-left: 5px;
+    }
+</style>
 @stop
 @section('seo')
 @stop
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/page/images/bg_1.jpg') }});">
+    @php
+        $bgImage = asset('page/images/200-hinh-nen.jpg.jpg');
+    @endphp
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url('{{ $bgImage }}');">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -25,7 +46,7 @@
                             <span class="fa fa-map-marker"></span>
                         </div>
                         <h3 class="mb-2">Địa chỉ</h3>
-                        <p>Đường 3/2, Phường Xuân Khánh, Ninh Kiều, Cần Thơ</p>
+                        <p>79/4/11 Đ.Thống Nhất, Phường 11, Gò vấp, TP.Hồ Chí Minh</p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -34,7 +55,7 @@
                             <span class="fa fa-phone"></span>
                         </div>
                         <h3 class="mb-2">Số điện thoại liên hệ</h3>
-                        <p><a href="tel://1234567920">0366890324</a></p>
+                        <p><a href="tel://1234567920">0817656743</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -43,7 +64,7 @@
                             <span class="fa fa-paper-plane"></span>
                         </div>
                         <h3 class="mb-2">Địa chỉ email</h3>
-                        <p><a href="mailto:info@yoursite.com">vhdtravel663@gmail.com</a></p>
+                        <p><a href="mailto:info@yoursite.com">ntnhieu2608@gmail.com</a></p>
                     </div>
                 </div>
                 <div class="col-md-3 d-flex">
@@ -93,13 +114,13 @@
                                 <span class="text-danger">{{ $errors->first('b_address') }}</span>
                             @endif
                         </div>
-                        <!-- <div class="form-group">
+                        <div class="form-group">
                             <label for="inputEmail3" class="control-label">Ngày khởi hành dự kiến</label>
                             <input type="date" name="b_start_date" value="{{ old('b_address', isset($user) ? $user->address : '') }}" class="form-control">
                             @if ($errors->first('b_start_date'))
                                 <span class="text-danger">{{ $errors->first('b_start_date') }}</span>
                             @endif
-                        </div> -->
+                        </div>
                         <div class="form-group">
                             <label for="inputEmail3" class="control-label">Số người lớn <sup class="text-danger">(*)</sup></label>
                             <input type="number" name="b_number_adults" class="form-control" placeholder="Số người lớn">
@@ -132,6 +153,26 @@
                             <label for="inputEmail3" class="control-label">Ghi chú</label>
                             <textarea name="b_note"  placeholder="Thông tin chi tiết để chúng tôi liên hệ nhanh chóng..." id="message" cols="20" rows="5" class="form-control"></textarea>
                         </div>
+                        
+                        <div class="form-group">
+                            <label class="control-label"><strong>Phương thức thanh toán</strong></label>
+                            <div class="payment-method" style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 10px;">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="payment_method" id="payment_later" value="later" checked>
+                                    <label class="form-check-label" for="payment_later">
+                                        <strong>Thanh toán sau</strong> - Chúng tôi sẽ liên hệ để xác nhận và hướng dẫn thanh toán
+                                    </label>
+                                </div>
+                                <div class="form-check mt-3">
+                                    <input class="form-check-input" type="radio" name="payment_method" id="payment_now" value="vnpay">
+                                    <label class="form-check-label" for="payment_now">
+                                        <strong>Thanh toán ngay qua VNPay</strong> - Thanh toán trực tuyến an toàn, nhanh chóng
+                                        <br><small class="text-muted"><i class="fa fa-credit-card"></i> Hỗ trợ thẻ ATM, Visa, Mastercard</small>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
                         <div class="col-md-12 text-center">
                             <div class="form-group">
                                 <input type="submit" value="Đặt Tour" class="btn btn-primary py-3 px-5">
@@ -182,16 +223,21 @@
                 </div>
             </div>
         </div>
-        <script>
-    $('.a').on('input',function(){
-        var $a =$(this).val();
-        var $p = $(this).parents('tr');
-        var $b=300;
-        var $t=$p.find('.t');
-        $t.text($b*$a);
-    })
-</script>
     </section>
 @stop
 @section('script')
+<script>
+    $(document).ready(function() {
+        // Script tính toán giá (nếu cần)
+        $('.a').on('input', function(){
+            var $a = $(this).val();
+            var $p = $(this).closest('.form-group');
+            var $b = 300;
+            var $t = $p.find('.t');
+            if ($t.length) {
+                $t.text($b * $a);
+            }
+        });
+    });
+</script>
 @stop

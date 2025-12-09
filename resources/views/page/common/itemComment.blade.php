@@ -1,6 +1,6 @@
 <li class="comment">
     <div class="vcard bio">
-        <img src="{{ asset(isset($comment) && !empty($comment->user->avatar) ? asset(pare_url_file($comment->user->avatar)) : 'page/images/person_1.jpg') }}" alt="Image placeholder">
+        <img src="{{ asset(isset($comment) && !empty($comment->user->avatar) ? asset(pare_url_file($comment->user->avatar)) : 'page/images/person_1.png') }}" alt="Image placeholder">
     </div>
     <div class="comment-body">
         <h3>{{ isset($comment) && !empty($comment->user->name) ? $comment->user->name : 'User Default' }}</h3>

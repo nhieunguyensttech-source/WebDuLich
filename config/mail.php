@@ -36,11 +36,11 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => 'smtp.gmail.com',
-            'port' => 587,
-            'encryption' => 'tls',
-            'username' =>'vohduc11@gmail.com',
-            'password' => 'hyfoegykrqrjgpjz',
+            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
+            'port' => env('MAIL_PORT', 587),
+            'encryption' => env('MAIL_ENCRYPTION', 'tls'),
+            'username' => env('MAIL_USERNAME'),
+            'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
             'auth_mode' => null,
         ],
@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => 'vohduc11@gmail.com',
-        'name' =>'VHDTravel (Đi Để Trở Về)',
+        'address' => env('MAIL_FROM_ADDRESS', 'hoahuongduong05124@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'VHDTravel (Đi Để Trở Về)'),
     ],
 
     /*

@@ -12,6 +12,6 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        'payment/vnpay/ipn', // VNPay IPN callback từ server
     ];
 }

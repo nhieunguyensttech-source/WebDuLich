@@ -4,7 +4,7 @@
             <div class="col-md pt-5">
                 <div class="ftco-footer-widget pt-md-5 mb-4">
                     <h2 class="ftco-heading-2">Giới thiệu</h2>
-                    <p>Website VHD Travel cho phép đặt các tour du lịch trong vào ngoài nước.</p>
+                    <p>Website Tuvis Travel cho phép đặt các tour du lịch trong vào ngoài nước.</p>
                     <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
                         <li class="ftco-animate"><a href="https://www.facebook.com/nguyenkkhanhtv"><span class="fa fa-facebook"></span></a></li>
                         <li class="ftco-animate"><a href="https://www.instagram.com/"><span class="fa fa-instagram"></span></a></li>
@@ -42,9 +42,9 @@
                     <h2 class="ftco-heading-2">Thông tin liện hệ</h2>
                     <div class="block-23 mb-3">
                         <ul>
-                            <li><span class="icon fa fa-map-marker"></span><span class="text"> Đường 3/2, Phường Xuân Khánh, Ninh Kiều, Cần Thơ</span></li>
-                            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">0123456789</span></a></li>
-                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">admin@gmail.com</span></a></li>
+                            <li><span class="icon fa fa-map-marker"></span><span class="text"> 79/4/11 Đ.Thống Nhất, Phường 11, Gò vấp, TP.Hồ Chí Minh</span></li>
+                            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">0817656743</span></a></li>
+                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">ntnhieu2608@gmail.com</span></a></li>
                         </ul>
                     </div>
                 </div>

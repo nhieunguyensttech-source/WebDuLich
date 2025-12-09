@@ -1,9 +1,9 @@
 @extends('page.layouts.page')
-@section('title', 'Đăng nhập - Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2022')
+@section('title', 'Đăng nhập - Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2025')
 @section('style')
 @stop
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/page/images/bg_1.jpg') }});">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/page/images/tour1.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">

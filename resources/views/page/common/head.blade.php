@@ -9,5 +9,6 @@
 <link rel="stylesheet" href="{{ asset('page/css/jquery.timepicker.css') }}">
 <link rel="stylesheet" href="{{ asset('page/css/flaticon.css') }}">
 <link rel="stylesheet" href="{{ asset('page/css/style.css') }}">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 <!-- toastr -->
 <link rel="stylesheet" href="{!! asset('admin/plugins/toastr/toastr.min.css') !!}">

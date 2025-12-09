@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@section('title', 'Thông tin tài khoản - Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2022')
+@section('title', 'Thông tin tài khoản - Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2025')
 @section('style')
 @stop
 @section('seo')

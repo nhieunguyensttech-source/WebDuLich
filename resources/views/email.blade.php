@@ -9,9 +9,9 @@
     
     <h2>Phiếu xác nhận booking   <b style="border-color: red; border-style: solid;color:red">CHƯA THANH TOÁN</b></h2>
      Mã tour: <b> {{$bookTour->b_tour_id}} </b> <br>
-   Tên tour: <b> {{$tour->t_title}} </b><br>
-    Ngày đi: <b> {{$bookTour->b_start_date}} </b><br>
-    Điểm khởi hành: <b> {{$bookTour->b_address}} </b><br>
+     Tên tour: <b> {{$tour->t_title}} </b><br>
+     Ngày đi: <b> {{$bookTour->b_start_date}} </b><br>
+     Điểm khởi hành: <b> {{$bookTour->b_address}} </b><br>
    
     <div style="background-color:#ddd;margin-top:8px">
     <div style ="margin-left:8px">
@@ -24,7 +24,7 @@
       Ngày booking:<b> {{$bookTour->created_at}}</b><br>
       Ngày xác nhận:<b> {{$bookTour->updated_at}}</b><br>
     Thời hạn thanh toán:<b> 7 ngày sau xác nhận</b><br>
- <b style="color:red"> Nếu quá thời hạn trên, quý khách chưa thanh toán, FunTravel sẽ huỷ booking này</b><br>
+ <b style="color:red"> Nếu quá thời hạn trên, quý khách chưa thanh toán, TuvisTravel sẽ huỷ booking này</b><br>
 </div>
  </div style="margin-top:8px">
     Họ tên:<b> {{$user->name}}</b><br>

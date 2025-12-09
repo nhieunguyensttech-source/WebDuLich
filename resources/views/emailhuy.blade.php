@@ -23,7 +23,7 @@
       Ngày booking:<b> {{$bookTour->created_at}}</b><br>
       Ngày Huỷ:<b> {{$bookTour->updated_at}}</b><br>
     
- <b style="color:red">Nếu có thắc mắc, quý khách vui lòng liên hệ vohduc11@gmail.com</b><br>
+ <b style="color:red">Nếu có thắc mắc, quý khách vui lòng liên hệ ntnhieu2608@gmail.com</b><br>
 </div>
  <div style="margin-top:8px">
     Họ tên:<b> {{$user->name}}</b><br>

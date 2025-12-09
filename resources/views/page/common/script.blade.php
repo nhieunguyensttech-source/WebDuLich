@@ -19,6 +19,7 @@
 <script src="{{ asset('page/js/scrollax.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{ asset('page/js/google-map.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <!-- toastr -->
 <script src="{!! asset('admin/plugins/toastr/toastr.min.js') !!}"></script>
 <script>

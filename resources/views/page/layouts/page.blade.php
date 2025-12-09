@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@yield('title', 'Mạng bán TOUR DU LỊCH trực tuyến hàng đầu Việt Vam | VHD Travel')</title>
+    <title>@yield('title', 'Mạng bán TOUR DU LỊCH trực tuyến hàng đầu Việt Vam | Tuvis Travel')</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -12,6 +12,12 @@
     @yield('content')
     @include('page.common.footer')
     @include('page.common.script')
+    <div id="compareBox" 
+     style="display:none; position:fixed; bottom:20px; right:20px; width:350px; 
+            background:#fff; border:1px solid #ddd; padding:15px; border-radius:10px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.2); z-index:9999;">
+    <div id="compareList"></div>
+</div>
 </body>
 <!-- Messenger Plugin chat Code -->
 <div id="fb-root"></div>

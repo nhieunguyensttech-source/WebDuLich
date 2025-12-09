@@ -1,6 +1,6 @@
 <li class="comment">
     <div class="vcard bio">
-        <img src="{{ asset(isset($reply) && !empty($reply->user->avatar) ? $reply->user->avatar : 'page/images/person_1.jpg') }}" alt="Image placeholder">
+        <img src="{{ asset(isset($reply) && !empty($reply->user->avatar) ? $reply->user->avatar : 'page/images/') }}" alt="Image placeholder">
     </div>
     <div class="reply-body">
         <h3>{{ isset($reply) && !empty($reply->user->name) ? $reply->user->name : 'User Default' }}</h3>

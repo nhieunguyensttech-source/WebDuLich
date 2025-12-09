@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\HotelBookingController;
+use App\Http\Controllers\Page\TourCompareController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -179,5 +181,18 @@ Route::group(['namespace' => 'Page'], function() {
     Route::get('/khach-san.html', 'HotelController@index')->name('hotel');
     Route::get('/khach-san/{id}/{slug}.html', 'HotelController@detail')->name('hotel.detail');
     Route::post('/comment', 'CommentController@comment')->name('comment');
+    
+    // Payment routes - Đặt route return và ipn trước để tránh conflict với route có parameter
+    Route::get('/payment/vnpay/return', 'PaymentController@vnpayReturn')->name('payment.vnpay.return');
+    Route::post('/payment/vnpay/ipn', 'PaymentController@vnpayIpn')->name('payment.vnpay.ipn');
+    Route::get('/payment/vnpay/{bookTourId}', 'PaymentController@showPaymentForm')->name('payment.vnpay.form');
+    Route::post('/payment/vnpay/create/{bookTourId}', 'PaymentController@createPayment')->name('payment.vnpay.create');
 });
 
+Route::get('/hotel/{id}/booking', [HotelBookingController::class, 'create'])->name('hotel.booking');
+Route::post('/hotel/{id}/booking', [HotelBookingController::class, 'store'])->name('hotel.booking.store');
+// So sánh tour
+Route::post('/compare/add', [App\Http\Controllers\CompareController::class, 'add'])->name('compare.add');
+Route::get('/compare', [App\Http\Controllers\CompareController::class, 'index'])->name('compare.index');
+Route::post('/compare/remove', [App\Http\Controllers\CompareController::class, 'remove'])->name('compare.remove');
+Route::get('/dia-diem/{id}/{slug}', [LocationController::class, 'show'])->name('location.show');

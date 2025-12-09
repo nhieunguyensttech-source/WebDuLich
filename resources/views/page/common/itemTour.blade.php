@@ -1,16 +1,18 @@
 @if($tour->t_status < 2)
 <div class="{{ !isset($itemTour) ? 'col-md-4' : '' }} ftco-animate fadeInUp ftco-animated {{ isset($itemTour) ? $itemTour : '' }}">
     <div class="project-wrap">
+        @php
+            $tourImage = $tour->t_image ? asset(pare_url_file($tour->t_image)) : asset('admin/dist/img/no-image.png');
+        @endphp
         <a href="{{ route('tour.detail', ['id' => $tour->id, 'slug' => safeTitle($tour->t_title)]) }}" class="img"
-            
-           style="background-image: url({{ $tour->t_image ? asset(pare_url_file($tour->t_image)) : asset('admin/dist/img/no-image.png') }});">
+           style="background-image: url('{{ $tourImage }}')">
            @if( $tour->t_sale > 0)
            <span  class="price">Sale {{ $tour->t_sale }}%</span>
            @endif
            @if( $tour->t_sale > 0)
            <span class="price" style="margin-left:100px">
            {{ number_format($tour->t_price_adults-($tour->t_price_adults*$tour->t_sale/100),0,',','.') }} vnd/người <br>
-           <span style="text-decoration: line-through;margin-left:35px;color:#ddd">{{ number_format($tour->t_price_adults),0,',','.' }}</span>
+           <span style="text-decoration: line-through;margin-left:35px;color:#ddd">{{ number_format($tour->t_price_adults,0,',','.') }}</span>
         </span>
            @else
            <span class="price" >
@@ -43,6 +45,16 @@
             @if($number-$tour->t_follow<2 && $tour->t_number_registered!=$tour->t_number_guests)
             <a style="color:red"> sắp hết </a>
             @endif
+            <div>
+  <a href="{{ route('compare.index') }}" class="add-compare" data-id="{{ $tour->id }}">
+    So sánh tour
+</a>
+<form action="{{ route('compare.add') }}" method="POST" style="display:inline;">
+    @csrf
+    <input type="hidden" name="id" value="{{ $tour->id }}">
+    <button type="submit" class="btn btn-sm btn-primary ml-3">Thêm tour vào so sánh</button>
+</form>
+</div>
             {{--<ul>--}}
             {{--<li><i class="fa fa-user" aria-hidden="true"></i> 2</li>--}}
             {{--<li><i class="fa fa-user" aria-hidden="true"></i> 3</li>--}}

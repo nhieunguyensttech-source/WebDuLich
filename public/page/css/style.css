@@ -8883,7 +8883,6 @@ h1, h2, h3, h4, h5,
       color: #f15d30; }
 
 .ftco-select-destination .container-2 {
-  margin: 0 0 0 auto !important;
   max-width: 1290px; }
 
 .project-destination .img {
@@ -10204,4 +10203,60 @@ textarea.form-control {
 }
 .item-comment > p {
   min-height: 100px;
+}
+.booking-wrapper {
+background: #fff;
+border-radius: 20px;
+padding: 30px;
+box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+.booking-header img {
+width: 100%;
+border-radius: 15px;
+margin-bottom: 20px;
+}
+.grid-2 {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 30px;
+}
+.section-title {
+font-size: 18px;
+font-weight: 700;
+margin-bottom: 15px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.field input, .field select, .field textarea {
+width: 100%;
+padding: 12px;
+border-radius: 10px;
+border: 1px solid #ccc;
+background: #fafafa;
+}
+.summary-box {
+background: #f8f9fc;
+padding: 20px;
+border-radius: 15px;
+border: 1px solid #eee;
+}
+.option-box {
+display:flex;
+justify-content:space-between;
+padding: 14px 18px;
+border: 1px solid #ddd;
+background: #fafafa;
+border-radius: 10px;
+margin-bottom: 10px;
+}
+.btn-main {
+background: #28a745;
+color:#fff;
+border:none;
+width: 100%;
+padding: 14px;
+border-radius: 12px;
+font-size: 17px;
+font-weight:600;
 }

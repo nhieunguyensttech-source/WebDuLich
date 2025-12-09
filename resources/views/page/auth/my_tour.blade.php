@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@section('title', 'Thông tin tài khoản - Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2022')
+@section('title', 'Thông tin tài khoản - Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2025')
 @section('style')
 @stop
 @section('seo')
@@ -63,6 +63,17 @@
                                             @endif
                                             @if($tour->b_status == 1)
                                                 <a class="btn btn-block btn-danger btn-sm btn-cancel-order" href="{{ route('post.cancel.order.tour', ['status' => 5, 'id' => $tour->id]) }}" >Hủy</a>
+                                            @endif
+                                            @if($tour->b_status == 2 && !$tour->b_payment_transaction_id)
+                                                <a class="btn btn-block btn-success btn-sm mt-2" href="{{ route('payment.vnpay.form', $tour->id) }}">
+                                                    <i class="fa fa-credit-card"></i> Thanh toán ngay
+                                                </a>
+                                            @endif
+                                            @if($tour->b_status == 3)
+                                                <p class="text-success mt-2"><i class="fa fa-check-circle"></i> Đã thanh toán</p>
+                                                @if($tour->b_payment_transaction_id)
+                                                    <small class="text-muted">Mã GD: {{ $tour->b_payment_transaction_id }}</small>
+                                                @endif
                                             @endif
                                         </td>
                                     </tr>

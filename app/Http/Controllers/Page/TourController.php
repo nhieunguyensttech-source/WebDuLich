@@ -86,22 +86,38 @@ class TourController extends Controller
 
         \DB::beginTransaction();
         try {
-            $params = $request->except(['_token']);
+            $params = $request->except(['_token', 'payment_method']);
             $user = Auth::guard('users')->user();
             $params['b_tour_id'] = $id;
             $params['b_user_id'] = $user->id;
-            $params['b_status'] = 1;
+            
+            // Xác định trạng thái dựa trên phương thức thanh toán
+            $paymentMethod = $request->payment_method ?? 'later';
+            if ($paymentMethod == 'vnpay') {
+                $params['b_status'] = 2; // Đã xác nhận - sẵn sàng thanh toán
+            } else {
+                $params['b_status'] = 1; // Tiếp nhận - chờ xác nhận
+            }
+            
             $params['b_price_adults']= $tour->t_price_adults -( $tour->t_price_adults* $tour->t_sale/100);
             $params['b_price_children']=$tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100); 
             $params['b_price_child6']=($tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100))*50/100;
             $params['b_price_child2']=($tour->t_price_children -( $tour->t_price_children* $tour->t_sale/100))*25/100;
             $book = BookTour::create($params);
+            
             if ($book) {
                 $tour->t_follow = $tour->t_follow + $numberUser;
                 $tour->save();
             }
             \DB::commit();
 
+            // Nếu chọn thanh toán ngay, redirect đến trang thanh toán VNPay
+            if ($paymentMethod == 'vnpay') {
+                return redirect()->route('payment.vnpay.form', $book->id)
+                    ->with('success', 'Đơn đặt tour đã được tạo. Vui lòng thanh toán để hoàn tất đặt tour.');
+            }
+
+            // Nếu thanh toán sau, gửi email và redirect về trang chủ
             $mail =$user->email;
             Mail::send('emailtn',compact('book','tour','user'),function($email) use($mail){
                 $email->subject('Thông tin xác nhận đơn Booking');

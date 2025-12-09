@@ -5,7 +5,7 @@
 @section('seo')
 @stop
 @section('content')
-    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/page/images/bg_1.jpg') }});">
+    <section class="hero-wrap hero-wrap-2 js-fullheight" style="background-image: url({{ asset('/page/images/nhien-3.jpg') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
@@ -71,16 +71,18 @@
                                
                             </tr>
                         </table>
+                        <tr>
                         <h2 class="mb-3 mt-5">#2. Lịch trình</h2>
                         <p >
                             {!! $tour->t_description !!}
                         </p>
-                      
+                        </tr>
+                        <tr>
                         <h2 class="mb-3 mt-5">#3. Giới thiệu tour</h2>
                         <p>
                             {!! $tour->t_content !!}
                         </p>
-
+                        </tr>
                     </div>
                     <div class="pt-5 mt-5 py-5" style="border-top: 1px solid #ccc;">
                         <h3 class="mb-5" style="font-size: 20px; font-weight: bold;">Danh sách bình luận</h3>

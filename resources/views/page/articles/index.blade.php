@@ -1,5 +1,5 @@
 @extends('page.layouts.page')
-@section('title', 'Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2022')
+@section('title', 'Tin tức Du lịch - Thông tin Du lịch, Tin tức Du Lịch Việt Nam 2025')
 @section('style')
 @stop
 @section('content')
@@ -8,7 +8,7 @@
         <div class="container">
             <div class="row no-gutters slider-text js-fullheight align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('page.home') }}">Trang chủ <i class="fa fa-chevron-right"></i></a></span> <span>Tin tức <i class="fa fa-chevron-right"></i></span></p>
+                    <p class="breadcrumbs"><span class="mr-2"><a href="{{ route('page.home') }}">Trang chủ <i class="fa fa-chevron-right"></i></a></span> <span class="mr-2"><a href="{{ route('articles.index') }}">Tin tức<i class="fa fa-chevron-right"></i></a></span></p>
                     <h1 class="mb-0 bread">Tin tức</h1>
                 </div>
             </div>
